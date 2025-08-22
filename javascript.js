@@ -12,11 +12,12 @@
 
 
 let squareContainer = document.querySelector(".container")
-let size = 16;
-let squareSize = squareContainer.clientWidth / size
+
+etchSketch(16)
 
 
-
+function etchSketch (size) {
+    let squareSize = squareContainer.clientWidth / size
 
 for (let i = 0; i < (size * size); i++) {
     let innerSquare = document.createElement("div")
@@ -28,7 +29,7 @@ for (let i = 0; i < (size * size); i++) {
 
 let innerSquares = document.querySelectorAll(".squares")
     innerSquares.forEach(square => {
-    square.addEventListener("mouseover", () => square.style.backgroundColor = "yellow")
+    square.addEventListener("mouseover", () => square.style.backgroundColor = "black")
 })
 
 let resetButton = document.querySelector("#reset")
@@ -38,6 +39,28 @@ resetButton.addEventListener("click", () => {
         square.style.backgroundColor = "gray"
     }  )
 } )
+
+let redButton = document.querySelector(".red")
+redButton.addEventListener("click", () => innerSquares.forEach(square => {
+    square.addEventListener("mouseover", () => square.style.backgroundColor = "red")
+    }))
+
+let blueButton = document.querySelector(".blue")
+blueButton.addEventListener("click", () => innerSquares.forEach(square => {
+    square.addEventListener("mouseover", () => square.style.backgroundColor = "blue")
+    }))
+
+let greenButton = document.querySelector(".green")
+greenButton.addEventListener("click", () => innerSquares.forEach(square => {
+    square.addEventListener("mouseover", () => square.style.backgroundColor = "green")
+    }))
+
+let rainbowButton = document.querySelector(".rainbow")
+rainbowButton.addEventListener("click", () => innerSquares.forEach(square => {
+    square.addEventListener("mouseover", () => square.style.backgroundColor = "#" + `${Math.floor(Math.random()*16777215).toString(16)}`)
+    }))
+}
+
 
 
 
@@ -50,32 +73,19 @@ sizeButton.addEventListener("click", () => {
         num = prompt("Your number can't be higher than 100")
     }
 
-    size = num;
-    squareSize = squareContainer.clientWidth / size;
     squareContainer.replaceChildren();
 
-   for (let i = 0; i < (num * num); i++) {
-    let innerSquare = document.createElement("div")
-    innerSquare.classList.add("squares")
-    innerSquare.style.width = `${squareSize}px`
-    innerSquare.style.height = `${squareSize}px`
-    squareContainer.appendChild(innerSquare)
-   }
-
-    let innerSquares = document.querySelectorAll(".squares")
-    innerSquares.forEach(square => {
-    square.addEventListener("mouseover", () => square.style.backgroundColor = "yellow")
-
-    let resetButton = document.querySelector("#reset")
-
-resetButton.addEventListener("click", () => {
-    innerSquares.forEach(square => {
-        square.style.backgroundColor = "gray"
-    }  )
-} )
+   etchSketch(num)
 })
- 
-})
+
+
+
+
+
+
+
+
+
 
 
 

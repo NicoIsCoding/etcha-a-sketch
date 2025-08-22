@@ -8,6 +8,13 @@ body {
     background-color: rgba(0, 0, 0, 0.663);
 }
 
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 960px;
+}
 h1 {
     display: flex;
     justify-content: center;
@@ -22,13 +29,15 @@ button {
 }
 
 
+
+
 .container {
     display: flex;
     flex-wrap: wrap;
-    min-height: 960px;
-    min-width: 960px;
-    max-height: 960px;
-    max-width: 960px;
+    min-height: 850px;
+    min-width: 850px;
+    max-height: 850px;
+    max-width: 850px;
     box-shadow: black 15px 15px 50px;
 
 }

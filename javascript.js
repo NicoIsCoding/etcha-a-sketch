@@ -31,6 +31,14 @@ let innerSquares = document.querySelectorAll(".squares")
     square.addEventListener("mouseover", () => square.style.backgroundColor = "yellow")
 })
 
+let resetButton = document.querySelector("#reset")
+
+resetButton.addEventListener("click", () => {
+    innerSquares.forEach(square => {
+        square.style.backgroundColor = "gray"
+    }  )
+} )
+
 
 
 let sizeButton = document.querySelector("#size")
@@ -41,7 +49,7 @@ sizeButton.addEventListener("click", () => {
     while (num > 100) {
         num = prompt("Your number can't be higher than 100")
     }
-    
+
     size = num;
     squareSize = squareContainer.clientWidth / size;
     squareContainer.replaceChildren();
@@ -57,9 +65,21 @@ sizeButton.addEventListener("click", () => {
     let innerSquares = document.querySelectorAll(".squares")
     innerSquares.forEach(square => {
     square.addEventListener("mouseover", () => square.style.backgroundColor = "yellow")
+
+    let resetButton = document.querySelector("#reset")
+
+resetButton.addEventListener("click", () => {
+    innerSquares.forEach(square => {
+        square.style.backgroundColor = "gray"
+    }  )
+} )
 })
  
 })
+
+
+
+
 
 
 

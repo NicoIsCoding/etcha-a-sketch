@@ -12,13 +12,17 @@
 
 
 let squareContainer = document.querySelector(".container")
+let size = 16;
+let squareSize = squareContainer.clientWidth / size
 
 
 
 
-for (let i = 0; i < (16 * 16); i++) {
+for (let i = 0; i < (size * size); i++) {
     let innerSquare = document.createElement("div")
     innerSquare.classList.add("squares")
+    innerSquare.style.width = `${squareSize}px`
+    innerSquare.style.height = `${squareSize}px`
     squareContainer.appendChild(innerSquare)
 }
 
@@ -27,21 +31,34 @@ let innerSquares = document.querySelectorAll(".squares")
     square.addEventListener("mouseover", () => square.style.backgroundColor = "yellow")
 })
 
+
+
 let sizeButton = document.querySelector("#size")
 
 sizeButton.addEventListener("click", () => {
     let num = prompt("how big do you want it?")
+    
+    while (num > 100) {
+        num = prompt("Your number can't be higher than 100")
+    }
+    
+    size = num;
+    squareSize = squareContainer.clientWidth / size;
     squareContainer.replaceChildren();
+
    for (let i = 0; i < (num * num); i++) {
     let innerSquare = document.createElement("div")
     innerSquare.classList.add("squares")
+    innerSquare.style.width = `${squareSize}px`
+    innerSquare.style.height = `${squareSize}px`
     squareContainer.appendChild(innerSquare)
+   }
 
     let innerSquares = document.querySelectorAll(".squares")
     innerSquares.forEach(square => {
     square.addEventListener("mouseover", () => square.style.backgroundColor = "yellow")
 })
-} 
+ 
 })
 
 

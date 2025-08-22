@@ -12,6 +12,7 @@
 
 
 let squareContainer = document.querySelector(".container")
+let squareSize = squareContainer.clientWidth / size
 
 etchSketch(16)
 
